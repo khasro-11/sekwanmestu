@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 
 export default function BeforeAfterSlider() {
@@ -37,20 +38,28 @@ export default function BeforeAfterSlider() {
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerUp}
     >
-      <div
-        className="ba-slider__layer placeholder-tile"
-        style={{ background: "linear-gradient(160deg,#DCE6F3,#F4F8FC)" }}
-      >
-        VORHER: verschmutzter Bereich (Platzhalter)
+      <div className="ba-slider__layer">
+        <Image
+          src="/before-after/badnachher.jpg"
+          alt="Bad nach der Reinigung"
+          fill
+          sizes="(max-width: 900px) 100vw, 900px"
+          className="ba-slider__image"
+          priority
+        />
       </div>
       <div
-        className="ba-slider__layer placeholder-tile"
-        style={{
-          clipPath: `inset(0 0 0 ${pos}%)`,
-          background: "linear-gradient(160deg,#F4F8FC,#fff)",
-        }}
+        className="ba-slider__layer"
+        style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
       >
-        NACHHER: gereinigter Bereich (Platzhalter)
+        <Image
+          src="/before-after/badvorher.jpg"
+          alt="Bad vor der Reinigung"
+          fill
+          sizes="(max-width: 900px) 100vw, 900px"
+          className="ba-slider__image"
+          priority
+        />
       </div>
       <div className="ba-slider__divider" style={{ left: `${pos}%` }} />
       <span className="ba-slider__tag ba-slider__tag--before">VORHER</span>

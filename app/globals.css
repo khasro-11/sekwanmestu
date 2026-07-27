@@ -643,6 +643,7 @@ img { max-width: 100%; display: block; }
   touch-action: pan-y;
 }
 .ba-slider__layer { position: absolute; inset: 0; }
+.ba-slider__image { object-fit: cover; }
 .ba-slider__divider {
   position: absolute;
   top: 0; bottom: 0;
