@@ -377,6 +377,13 @@ img { max-width: 100%; display: block; }
   .hero { min-height: auto; }
   .hero__content { padding: 88px 0 72px; }
   .hero__overlay { background: linear-gradient(180deg,rgba(250,252,254,.94),rgba(244,249,253,.55)); }
+  .hero__col { align-items: center; text-align: center; }
+  .hero__badge { align-self: center; }
+  .hero__lead { max-width: 440px; }
+  .hero__actions { justify-content: center; }
+  .hero__actions .btn { flex: 1 1 auto; justify-content: center; }
+  .hero__stats { justify-content: center; text-align: center; }
+  .hero__stat { align-items: center; }
 }
 
 /* ---------- trust bar ---------- */
