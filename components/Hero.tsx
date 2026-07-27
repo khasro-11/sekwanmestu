@@ -1,12 +1,13 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
+import heroBg from "@/public/hero/hintergrund.webp";
 
 export default function Hero() {
   return (
     <section id="start" className="hero">
-      {/* TODO: replace with the real hero photo (cleaning team in a modern
-          office, landscape, high-res) — the source asset could not be
-          retrieved intact from the design handoff. */}
-      <div className="hero__media hero__media--placeholder" aria-hidden="true" />
+      <div className="hero__media" aria-hidden="true">
+        <Image src={heroBg} alt="" fill priority sizes="100vw" />
+      </div>
       <div className="hero__overlay" />
       <div className="container hero__content">
         <Reveal className="hero__col">
