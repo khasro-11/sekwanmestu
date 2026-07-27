@@ -158,8 +158,8 @@ export const frequenzOptions = [
 ];
 
 export const CONTACT = {
-  phone: "+49 15561 320685",
-  phoneHref: "tel:+4915561320685",
+  phone: "+49 160 8175604",
+  phoneHref: "tel:+491608175604",
   whatsappHref: "https://wa.me/491608175604",
   founder: {
     name: "Sakwan Musto",
