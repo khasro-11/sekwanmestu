@@ -423,6 +423,28 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
+@media (max-width: 640px) {
+  .vorteile-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 24px;
+    margin-inline: -24px;
+    padding: 4px 24px 14px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .vorteile-grid::-webkit-scrollbar { display: none; }
+  .vorteile-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  .vorteile-grid { margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
+  .vorteile-card { flex-basis: 84%; }
+}
 .vorteile-card {
   background: #fff;
   border: 1px solid var(--hairline);
@@ -488,6 +510,28 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
+}
+@media (max-width: 640px) {
+  .leistungen-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 24px;
+    margin-inline: -24px;
+    padding: 4px 24px 14px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .leistungen-grid::-webkit-scrollbar { display: none; }
+  .leistung-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+}
+@media (max-width: 480px) {
+  .leistungen-grid { margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
+  .leistung-card { flex-basis: 84%; }
 }
 .leistung-card {
   border: 1px solid var(--hairline);
