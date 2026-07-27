@@ -40,8 +40,8 @@ export default function BeforeAfterSlider() {
     >
       <div className="ba-slider__layer">
         <Image
-          src="/before-after/badnachher.jpg"
-          alt="Bad nach der Reinigung"
+          src="/before-after/badvorher.jpg"
+          alt="Bad vor der Reinigung"
           fill
           sizes="(max-width: 900px) 100vw, 900px"
           className="ba-slider__image"
@@ -53,8 +53,8 @@ export default function BeforeAfterSlider() {
         style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
       >
         <Image
-          src="/before-after/badvorher.jpg"
-          alt="Bad vor der Reinigung"
+          src="/before-after/badnachher.jpg"
+          alt="Bad nach der Reinigung"
           fill
           sizes="(max-width: 900px) 100vw, 900px"
           className="ba-slider__image"
