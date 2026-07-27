@@ -1,10 +1,27 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 const tiles = [
-  { label: "Sanitärreinigung / Waschbecken", offset: false },
-  { label: "Bodenreinigung mit Maschine", offset: true },
-  { label: "Reinigungskraft im Einsatz", offset: false },
-  { label: "Professionelle Arbeitsgeräte", offset: true },
+  {
+    src: "/ueber-uns/sanitaerreinigung.png",
+    label: "Sanitärreinigung / Waschbecken",
+    offset: false,
+  },
+  {
+    src: "/ueber-uns/bettenmachen.png",
+    label: "Bettenmachen im Hotelzimmer",
+    offset: true,
+  },
+  {
+    src: "/ueber-uns/reinigungskraft-flur.png",
+    label: "Reinigungskraft im Einsatz",
+    offset: false,
+  },
+  {
+    src: "/ueber-uns/arbeitsgeraete.png",
+    label: "Professionelle Arbeitsgeräte",
+    offset: true,
+  },
 ];
 
 export default function UeberUns() {
@@ -44,7 +61,13 @@ export default function UeberUns() {
               key={tile.label}
               className={`ueberuns-tile${tile.offset ? " ueberuns-tile--offset" : ""}`}
             >
-              <div className="placeholder-tile">{tile.label}</div>
+              <Image
+                src={tile.src}
+                alt={tile.label}
+                fill
+                sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 320px"
+                className="ueberuns-tile__image"
+              />
             </div>
           ))}
         </Reveal>
