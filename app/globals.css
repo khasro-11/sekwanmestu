@@ -279,7 +279,7 @@ img { max-width: 100%; display: block; }
 }
 .hero__content {
   position: relative;
-  padding: 120px 0 96px;
+  padding-block: 120px 96px;
   width: 100%;
 }
 .hero__col {
@@ -379,7 +379,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 640px) {
   .hero { min-height: auto; }
-  .hero__content { padding: 88px 0 72px; }
+  .hero__content { padding-block: 88px 72px; }
   .hero__overlay { background: linear-gradient(180deg,rgba(250,252,254,.94),rgba(244,249,253,.55)); }
   .hero__col { align-items: center; text-align: center; }
   .hero__badge { align-self: center; }
