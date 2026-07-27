@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 import { ablaufSteps } from "@/lib/content";
-
+// Ablauf.tsx
 export default function Ablauf() {
   return (
     <section id="ablauf" className="ablauf section">
