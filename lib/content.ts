@@ -165,13 +165,13 @@ export const CONTACT = {
     name: "Sakwan Musto",
     phone: "+49 160 8175604",
     phoneHref: "tel:+491608175604",
-    email: "musto-service@bd-gebäudereinigung.com",
+    email: "service@bd-gebäudereinigung.de",
   },
   service: {
     phone: "+49 15561 320685",
     phoneHref: "tel:+4915561320685",
-    email: "service@bd-gebäudereinigung.com",
-    infoEmail: "info@bd-gebäudereinigung.com",
+    email: "service@bd-gebäudereinigung.de",
+    infoEmail: "info@bd-gebäudereinigung.de",
   },
   address: {
     street: "Kurfürstenstraße 36",
