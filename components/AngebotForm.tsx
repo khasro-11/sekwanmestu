@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import {
   leistungOptions,
   objektOptions,
@@ -96,15 +97,34 @@ export default function AngebotForm() {
       return;
     }
 
+    if (values.website) {
+      // Honeypot field caught a bot — silently succeed.
+      setSent(true);
+      return;
+    }
+
     setSending(true);
     setSendError(false);
     try {
-      const res = await fetch("/api/angebot", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error("request failed");
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          leistung: values.leistung.join(", "),
+          kundentyp: values.kundentyp,
+          objekt: values.objekt.join(", "),
+          flaeche: values.flaeche,
+          frequenz: values.frequenz,
+          start: values.start || "–",
+          vorname: values.vorname,
+          nachname: values.nachname,
+          email: values.email,
+          telefon: values.telefon || "–",
+          adresse: values.adresse,
+          nachricht: values.nachricht || "–",
+        },
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! }
+      );
       setSent(true);
     } catch {
       setSendError(true);
