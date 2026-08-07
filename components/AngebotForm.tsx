@@ -21,6 +21,7 @@ type Values = {
   adresse: string;
   nachricht: string;
   datenschutz: boolean;
+  website: string;
 };
 
 const initialValues: Values = {
@@ -37,6 +38,7 @@ const initialValues: Values = {
   adresse: "",
   nachricht: "",
   datenschutz: false,
+  website: "",
 };
 
 const stepNames: Record<number, string> = {
@@ -52,6 +54,8 @@ function toggle(list: string[], value: string) {
 export default function AngebotForm() {
   const [step, setStep] = useState(1);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [values, setValues] = useState<Values>(initialValues);
   const [invalid, setInvalid] = useState<Set<string>>(new Set());
 
@@ -77,7 +81,7 @@ export default function AngebotForm() {
     return bad.size === 0;
   }
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validateStep()) return;
     if (step < 3) {
@@ -89,11 +93,23 @@ export default function AngebotForm() {
           behavior: "smooth",
         });
       }
-    } else {
-      // No submission backend is wired up yet — hook this up to a real
-      // endpoint (e.g. a Vercel Function calling Resend/Formspree) before
-      // launch, plus honeypot + rate limiting on the server side.
+      return;
+    }
+
+    setSending(true);
+    setSendError(false);
+    try {
+      const res = await fetch("/api/angebot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error("request failed");
       setSent(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
     }
   }
 
@@ -142,6 +158,16 @@ export default function AngebotForm() {
       </div>
 
       <form className="angebot-form" onSubmit={onSubmit} noValidate>
+        <input
+          type="text"
+          name="website"
+          value={values.website}
+          onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", width: 1, height: 1 }}
+        />
         {step === 1 && (
           <div className="form-step">
             <fieldset className="form-fieldset">
@@ -332,6 +358,12 @@ export default function AngebotForm() {
             Bitte füllen Sie die markierten Pflichtfelder aus.
           </div>
         )}
+        {sendError && (
+          <div className="form-error">
+            Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es
+            erneut oder rufen Sie uns an.
+          </div>
+        )}
 
         <div className="form-nav">
           <button
@@ -342,8 +374,8 @@ export default function AngebotForm() {
           >
             Zurück
           </button>
-          <button type="submit" className="btn-submit">
-            {step === 3 ? "Anfrage absenden" : "Weiter"}
+          <button type="submit" className="btn-submit" disabled={sending}>
+            {sending ? "Wird gesendet…" : step === 3 ? "Anfrage absenden" : "Weiter"}
           </button>
         </div>
       </form>

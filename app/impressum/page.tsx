@@ -42,8 +42,8 @@ export default function ImpressumPage() {
           Telefon: <a href="tel:+4915561320685">+49 15561 320685</a>
           <br />
           E-Mail:{" "}
-          <a href="mailto:info@bd-gebäudereinigung.com">
-            info@bd-gebäudereinigung.com
+          <a href="mailto:info@bd-gebauedereinigung.de">
+            info@bd-gebauedereinigung.de
           </a>
         </p>
         <h2>Streitschlichtung</h2>

@@ -57,7 +57,7 @@ const jsonLd = {
     addressCountry: "DE",
   },
   telephone: "+4915561320685",
-  email: "info@bd-gebäudereinigung.com",
+  email: "info@bd-gebauedereinigung.de",
   url: siteUrl,
   areaServed: "Nordrhein-Westfalen",
   founder: { "@type": "Person", name: "Sakwan Musto" },

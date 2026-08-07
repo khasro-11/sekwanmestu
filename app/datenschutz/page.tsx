@@ -30,8 +30,8 @@ export default function DatenschutzPage() {
         <h2>Verantwortlicher</h2>
         <p>
           B&amp;D Gebäudereinigung, Kurfürstenstraße 36, 42655 Solingen,{" "}
-          <a href="mailto:info@bd-gebäudereinigung.com">
-            info@bd-gebäudereinigung.com
+          <a href="mailto:info@bd-gebauedereinigung.de">
+            info@bd-gebauedereinigung.de
           </a>
         </p>
         <h2>Verarbeitung Ihrer Anfrage über das Angebotsformular</h2>
